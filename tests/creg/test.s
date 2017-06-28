@@ -27,9 +27,48 @@
 .global main
 main:
 
-	ldi   r16,     'c'
+	; This now should go onto the fault path with 00:FF due to the
+	; execution chain guards are not set up.
+
+	call  xmb_creg
+
+	ldi   r16,     'F'
 	ldi   r17,     '\n'
 	sts   0x00E0,  r16
 	sts   0x00E0,  r17
 
 	ret
+
+
+
+;
+; XMBurner fault handler
+;
+.global xmb_fault
+xmb_fault:
+
+	ldi   r16,     0x00
+	sts   0x00F0,  r16     ; Cancel behaviour modifications
+
+	ldi   r16,     'O'
+	sts   0x00E0,  r16
+	ldi   r16,     ':'
+	sts   0x00E0,  r16
+	ldi   r16,     ' '
+	sts   0x00E0,  r16
+
+	sts   0x00E2,  r25
+
+	ldi   r16,     ':'
+	sts   0x00E0,  r16
+
+	sts   0x00E2,  r24
+
+	ldi   r16,     '\n'
+	sts   0x00E0,  r16
+
+	ldi   r16,     0x00
+	sts   0x00EC,  r16     ; Terminate program
+
+	rjmp  .-2
+
