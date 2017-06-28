@@ -1,2 +1,5 @@
-# _obj_ directory if exists contains objects
-/_obj_
+# _rep_ and _hex_ directories contain generated artifacts
+/_rep_
+/_hex_
+# The report.txt file contains test results
+report.txt
