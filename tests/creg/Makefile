@@ -30,6 +30,10 @@
 
 include ../../Make_defines.mk
 
+# XMBurner component
+
+XMB_PATH = ../../../xmburner
+
 # Paths (they are assumed to exist)
 
 REP = ../../_rep_
@@ -45,8 +49,10 @@ OUT = $(REP)/creg.txt
 
 all: $(OUT)
 
-$(OUT):
+$(OUT): $(HEX)/xmb_creg.o
 	echo "test" > $(OUT)
 
+$(HEX)/xmb_creg.o: $(XMB_PATH)/xmburner/xmb_creg.s
+	$(CC) $(ASMFLAGS) -c $< -o $@
 
 .PHONY: all

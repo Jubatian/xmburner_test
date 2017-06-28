@@ -57,6 +57,7 @@ COMPONENTS  = $(REP)/creg.txt
 all: report.txt
 clean:
 	rm    -f $(REPORT)
+	rm    -f $(REP)/*.txt
 	rm -d -f $(REP)
 	rm    -f $(HEX)/*.hex
 	rm    -f $(HEX)/*.elf
