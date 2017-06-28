@@ -36,11 +36,16 @@ include Make_defines.mk
 EMUPATH = ../xmburner_aluemu
 EMU = $(EMUPATH)/aluemu
 
+# XMBurner
+
+XMBPATH = ../xmburner
+XMB = $(XMBPATH)/_xmb_o_/dummy
+
 # Directories
 
 REP = _rep_
 HEX = _hex_
-DEPS = $(REP) $(HEX) $(EMU)
+DEPS = $(REP) $(HEX) $(EMU) $(XMB)
 
 # The output report
 
@@ -59,6 +64,7 @@ clean:
 	rm    -f $(REPORT)
 	rm    -f $(REP)/*.txt
 	rm -d -f $(REP)
+	rm    -f $(HEX)/*.o
 	rm    -f $(HEX)/*.hex
 	rm    -f $(HEX)/*.elf
 	rm -d -f $(HEX)
@@ -72,6 +78,11 @@ $(REPORT): $(COMPONENTS)
 
 $(EMU):
 	cd $(EMUPATH) && $(MAKE)
+
+# XMBurner
+
+$(XMB):
+	cd $(XMBPATH) && $(MAKE)
 
 # Directories
 

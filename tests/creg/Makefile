@@ -20,7 +20,8 @@
 #
 #
 #
-# The main makefile of the test
+# The main makefile of the test. XMBurner and the Emulator is assumed to be
+# already built when executing this Makefile.
 #
 #
 # make all (or make): build the program
@@ -30,9 +31,14 @@
 
 include ../../Make_defines.mk
 
-# XMBurner component
+# XMBurner components
 
-XMB_PATH = ../../../xmburner
+XMB_PATH_OBJ = ../../../xmburner/_xmb_o_
+
+# Emulator
+
+EMU_PATH = ../../../xmburner_aluemu
+EMU = $(EMU_PATH)/aluemu
 
 # Paths (they are assumed to exist)
 
@@ -49,10 +55,16 @@ OUT = $(REP)/creg.txt
 
 all: $(OUT)
 
-$(OUT): $(HEX)/xmb_creg.o
-	echo "test" > $(OUT)
+$(OUT): $(HEX)/creg_test.hex
+	$(EMU) $(HEX)/creg_test.hex > $(OUT)
 
-$(HEX)/xmb_creg.o: $(XMB_PATH)/xmburner/xmb_creg.s
+$(HEX)/creg_test.hex: $(HEX)/creg_test.elf
+	avr-objcopy -O ihex $(HEX_FLASH_FLAGS) $< $@
+
+$(HEX)/creg_test.elf: $(HEX)/creg_test.o $(XMB_PATH_OBJ)/xmb_creg.o $(XMB_PATH_OBJ)/xmb_glob.o
+	$(CC) $(LDFLAGS) $(HEX)/creg_test.o $(XMB_PATH_OBJ)/xmb_creg.o $(XMB_PATH_OBJ)/xmb_glob.o -o $@
+
+$(HEX)/creg_test.o: test.s
 	$(CC) $(ASMFLAGS) -c $< -o $@
 
 .PHONY: all
