@@ -1,5 +1,5 @@
 ;
-; XMBurner test - CPU register tester
+; XMBurner test - xmb_creg.s, case 0
 ;
 ; Copyright (C) 2017 Sandor Zsuga (Jubatian)
 ;
@@ -16,9 +16,13 @@
 ;  You should have received a copy of the GNU General Public License
 ;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;
+;
+; Tests whether the execution chain functions properly.
+;
 
 
 #include <avr/io.h>
+.include "creg_inc.inc"
 
 
 .section .text
@@ -27,17 +31,31 @@
 .global main
 main:
 
-	; This now should go onto the fault path with 00:FF due to the
-	; execution chain guards are not set up.
+	; Output test ID
+
+	ldi   r22,     0
+	ldi   r24,     lo8(creg_id)
+	ldi   r25,     hi8(creg_id)
+	call  print_test_id
+
+	; Prepare for test
+	; Try to call the xmb_creg routine without a suitable execution chain
+	; value
+
+	clr   r16
+	clr   r17
+	clr   r18
+	clr   r19
+	ldi   ZL,      lo8(dummy)
+	ldi   ZH,      hi8(dummy)
+
+	; Run test
 
 	call  xmb_creg
 
-	ldi   r16,     'F'
-	ldi   r17,     '\n'
-	sts   0x00E0,  r16
-	sts   0x00E0,  r17
+	; If routine completes, then failed
 
-	ret
+	rjmp  fail
 
 
 
@@ -50,25 +68,41 @@ xmb_fault:
 	ldi   r16,     0x00
 	sts   0x00F0,  r16     ; Cancel behaviour modifications
 
-	ldi   r16,     'O'
-	sts   0x00E0,  r16
-	ldi   r16,     ':'
-	sts   0x00E0,  r16
-	ldi   r16,     ' '
-	sts   0x00E0,  r16
+	; Evaulate
 
-	sts   0x00E2,  r25
+	cpi   r24,     0xFF
+	brne  fail
+	cpi   r25,     0x00
+	brne  fail
 
-	ldi   r16,     ':'
-	sts   0x00E0,  r16
+	; Passed test
 
-	sts   0x00E2,  r24
+	call  print_pass
+	rjmp  exit
 
-	ldi   r16,     '\n'
-	sts   0x00E0,  r16
+
+
+;
+; Failed test
+;
+fail:
+
+	call  print_fail
+	rjmp  exit
+
+
+
+;
+; Done, exit
+;
+exit:
 
 	ldi   r16,     0x00
 	sts   0x00EC,  r16     ; Terminate program
-
 	rjmp  .-2
 
+
+.section .data
+
+dummy:
+	.space 4

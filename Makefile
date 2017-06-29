@@ -94,7 +94,7 @@ $(HEX):
 
 # Report parts
 
-$(REP)/creg.txt: $(DEPS)
+$(REP)/creg.txt: $(DEPS) tests/creg/*
 	cd tests/creg && $(MAKE)
 
 .PHONY: all clean
