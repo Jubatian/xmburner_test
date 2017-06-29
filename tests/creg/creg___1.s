@@ -1,5 +1,5 @@
 ;
-; XMBurner test - xmb_creg.s, case 0
+; XMBurner test - xmb_creg.s, case 1
 ;
 ; Copyright (C) 2017 Sandor Zsuga (Jubatian)
 ;
@@ -17,7 +17,7 @@
 ;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;
 ;
-; Tests whether the execution chain functions properly.
+; Tests whether the module can pass on a correctly operating microcontroller.
 ;
 
 
@@ -33,19 +33,18 @@ main:
 
 	; Output test ID
 
-	ldi   r22,     0
+	ldi   r22,     1
 	ldi   r24,     lo8(creg_id)
 	ldi   r25,     hi8(creg_id)
 	call  print_test_id
 
 	; Prepare for test
-	; Try to call the xmb_creg routine without a suitable execution chain
-	; value
+	; Set up the execution chain value correctly
 
-	clr   r20
-	clr   r21
-	clr   r22
-	clr   r23
+	ldi   r20,     (exec_id_from      ) & 0xFF
+	ldi   r21,     (exec_id_from >>  8) & 0xFF
+	ldi   r22,     (exec_id_from >> 16) & 0xFF
+	ldi   r23,     (exec_id_from >> 24) & 0xFF
 	ldi   r24,     lo8(pm(xmb_creg))
 	ldi   r25,     hi8(pm(xmb_creg))
 
@@ -53,11 +52,10 @@ main:
 
 	call  runner_run
 
-	; If routine completes, then failed
+	; If routine completes, then passes
 
-	ldi   r24,     0xFF
-	ldi   r25,     0xFF
-	rjmp  fail
+	call  print_pass
+	rjmp  exit
 
 
 
@@ -70,24 +68,7 @@ xmb_fault:
 	ldi   r16,     0x00
 	sts   0x00F0,  r16     ; Cancel behaviour modifications
 
-	; Evaulate
-
-	cpi   r24,     0xFF
-	brne  fail
-	cpi   r25,     0x00
-	brne  fail
-
-	; Passed test
-
-	call  print_pass
-	rjmp  exit
-
-
-
-;
-; Failed test
-;
-fail:
+	; Failed test
 
 	call  print_fail_val
 	rjmp  exit

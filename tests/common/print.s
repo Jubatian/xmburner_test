@@ -119,6 +119,38 @@ print_fail:
 
 
 
+;
+; Print test result: 'FAIL' with some extra info
+;
+; Inputs:
+; r25:r24: Extra info (printed as two hex values, r25:r24 order)
+; Clobbers:
+; r24, r25, X, Z
+;
+.global print_fail_val
+print_fail_val:
+
+	movw  XL,      r24
+
+	ldi   r24,     lo8(print_str_fail)
+	ldi   r25,     hi8(print_str_fail)
+	rcall print_str
+
+	ldi   r24,     ' '
+	sts   0x00E0,  r24     ; Write to character output port (emulator)
+	ldi   r24,     '('
+	sts   0x00E0,  r24
+	sts   0x00E2,  XH      ; Write to hexadecimal output port (emulator)
+	ldi   r24,     ':'
+	sts   0x00E0,  r24
+	sts   0x00E2,  XL
+	ldi   r24,     ')'
+	sts   0x00E0,  r24
+
+	ret
+
+
+
 print_str_test:
 	.byte 'T', 'e', 's', 't', ':', ' ', 0
 

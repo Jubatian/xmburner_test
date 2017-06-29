@@ -51,7 +51,7 @@ OUT = $(REP)/creg.txt
 
 # Usual object depencies of test cases
 
-OBJDEPS  = $(HEX)/print.o $(HEX)/creg_id.o
+OBJDEPS  = $(HEX)/print.o $(HEX)/runner.o $(HEX)/creg_id.o
 OBJDEPS += $(XMB_PATH_OBJ)/xmb_creg.o $(XMB_PATH_OBJ)/xmb_glob.o
 
 # Usual compile dependencies of test cases
@@ -61,6 +61,7 @@ CDEPS = creg_inc.inc
 # List of test results
 
 TESTRES  = $(REP)/creg___0.txt
+TESTRES += $(REP)/creg___1.txt
 
 
 # Build tests
@@ -74,21 +75,39 @@ $(OUT): $(TESTRES)
 # 0
 
 $(REP)/creg___0.txt: $(HEX)/creg___0.hex
-	$(EMU) $(HEX)/creg___0.hex > $@
+	$(EMU) $< > $@
 
 $(HEX)/creg___0.hex: $(HEX)/creg___0.elf
 	avr-objcopy -O ihex $(HEX_FLASH_FLAGS) $< $@
 
 $(HEX)/creg___0.elf: $(HEX)/creg___0.o $(OBJDEPS)
-	$(CC) $(LDFLAGS) $(HEX)/creg___0.o $(OBJDEPS) -o $@
+	$(CC) $(LDFLAGS) $< $(OBJDEPS) -o $@
 
 $(HEX)/creg___0.o: creg___0.s $(CDEPS)
+	$(CC) $(ASMFLAGS) -c $< -o $@
+
+
+# 1
+
+$(REP)/creg___1.txt: $(HEX)/creg___1.hex
+	$(EMU) $< > $@
+
+$(HEX)/creg___1.hex: $(HEX)/creg___1.elf
+	avr-objcopy -O ihex $(HEX_FLASH_FLAGS) $< $@
+
+$(HEX)/creg___1.elf: $(HEX)/creg___1.o $(OBJDEPS)
+	$(CC) $(LDFLAGS) $< $(OBJDEPS) -o $@
+
+$(HEX)/creg___1.o: creg___1.s $(CDEPS)
 	$(CC) $(ASMFLAGS) -c $< -o $@
 
 
 # Common elements
 
 $(HEX)/print.o: ../common/print.s
+	$(CC) $(ASMFLAGS) -c $< -o $@
+
+$(HEX)/runner.o: ../common/runner.s
 	$(CC) $(ASMFLAGS) -c $< -o $@
 
 $(HEX)/creg_id.o: creg_id.s
