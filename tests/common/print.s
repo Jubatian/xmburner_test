@@ -60,9 +60,6 @@ print_str_le:
 .global print_test_id
 print_test_id:
 
-	ldi   XL,      '\n'
-	sts   0x00E0,  XL
-
 	movw  XL,      r24
 	ldi   r24,     lo8(print_str_test)
 	ldi   r25,     hi8(print_str_test)
