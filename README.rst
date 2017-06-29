@@ -45,3 +45,26 @@ The tests can be executed by running make. This will build and execute the
 tests generating results in a report.txt file. Note that failing a test won't
 halt the process, it will rather add an appropriate entry in the report.txt
 file.
+
+
+
+Interpreting test reports
+------------------------------------------------------------------------------
+
+
+Reports of individual tests are generated in the following format: ::
+
+    Test: <component> (<test_case>)
+    Result: PASS / FAIL
+
+Where:
+
+- component: The XMBurner component being tested (identified by its filename).
+- test_case: The test case, same as the number in the file name in the tests
+  folder.
+
+Result most commonly will be either PASS or FAIL. It is possible that a test
+can not generate a result due to a flaw in XMBurner or due to the way the
+simulated processor anomaly interacts with the running code. This case
+"Result:" will print without a result, which should be interpreted as a
+failure.
