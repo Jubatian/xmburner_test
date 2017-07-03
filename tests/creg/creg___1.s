@@ -81,7 +81,7 @@ xmb_fault:
 exit:
 
 	ldi   r16,     0x00
-	sts   0x00EC,  r16     ; Terminate program
+	sts   0x00E7,  r16     ; Terminate program
 	rjmp  .-2
 
 
