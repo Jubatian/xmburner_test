@@ -85,7 +85,7 @@ print_test_id:
 
 
 ;
-; Print test result: 'PASS'
+; Print test result: 'PASS' and terminate.
 ;
 ; Inputs:
 ; Clobbers:
@@ -96,12 +96,14 @@ print_pass:
 
 	ldi   r24,     lo8(print_str_pass)
 	ldi   r25,     hi8(print_str_pass)
-	rjmp  print_str
+	rcall print_str
+
+	rjmp  print_exit
 
 
 
 ;
-; Print test result: 'PASS' with early detection notification
+; Print test result: 'PASS' with early detection notification and terminate.
 ;
 ; Inputs:
 ; r25:r24: Extra info (printed as two hex values, r25:r24 order)
@@ -128,12 +130,12 @@ print_pass_early:
 	ldi   r24,     ')'
 	sts   0x00E0,  r24
 
-	ret
+	rjmp  print_exit
 
 
 
 ;
-; Print test result: 'FAIL'
+; Print test result: 'FAIL' and terminate.
 ;
 ; Inputs:
 ; Clobbers:
@@ -144,12 +146,14 @@ print_fail:
 
 	ldi   r24,     lo8(print_str_fail)
 	ldi   r25,     hi8(print_str_fail)
-	rjmp  print_str
+	rcall print_str
+
+	rjmp  print_exit
 
 
 
 ;
-; Print test result: 'FAIL (No detection)'
+; Print test result: 'FAIL (No detection)' and terminate.
 ;
 ; Inputs:
 ; Clobbers:
@@ -164,12 +168,14 @@ print_fail_nodet:
 
 	ldi   r24,     lo8(print_str_nodet)
 	ldi   r25,     hi8(print_str_nodet)
-	rjmp  print_str
+	rcall print_str
+
+	rjmp  print_exit
 
 
 
 ;
-; Print test result: 'FAIL' with some extra info
+; Print test result: 'FAIL' with some extra info and terminate.
 ;
 ; Inputs:
 ; r25:r24: Extra info (printed as two hex values, r25:r24 order)
@@ -196,7 +202,15 @@ print_fail_val:
 	ldi   r24,     ')'
 	sts   0x00E0,  r24
 
-	ret
+	rjmp  print_exit
+
+
+
+print_exit:
+
+	ldi   r16,     0x00
+	sts   0x00E7,  r16     ; Terminate program (emulator)
+	rjmp  .-2
 
 
 

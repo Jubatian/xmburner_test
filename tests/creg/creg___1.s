@@ -54,8 +54,7 @@ main:
 
 	; If routine completes, then passes
 
-	call  print_pass
-	rjmp  exit
+	jmp   print_pass
 
 
 
@@ -70,22 +69,4 @@ xmb_fault:
 
 	; Failed test
 
-	call  print_fail_val
-	rjmp  exit
-
-
-
-;
-; Done, exit
-;
-exit:
-
-	ldi   r16,     0x00
-	sts   0x00E7,  r16     ; Terminate program
-	rjmp  .-2
-
-
-.section .data
-
-dummy:
-	.space 4
+	jmp   print_fail_val
