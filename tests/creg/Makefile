@@ -62,6 +62,8 @@ CDEPS = creg_inc.inc
 
 TESTRES  = $(REP)/creg___0.txt
 TESTRES += $(REP)/creg___1.txt
+TESTRES += $(REP)/creg__20.txt
+TESTRES += $(REP)/creg__60.txt
 
 
 # Build tests
@@ -99,6 +101,36 @@ $(HEX)/creg___1.elf: $(HEX)/creg___1.o $(OBJDEPS)
 	$(CC) $(LDFLAGS) $< $(OBJDEPS) -o $@
 
 $(HEX)/creg___1.o: creg___1.s $(CDEPS)
+	$(CC) $(ASMFLAGS) -c $< -o $@
+
+
+# 20
+
+$(REP)/creg__20.txt: $(HEX)/creg__20.hex
+	$(EMU) $< > $@
+
+$(HEX)/creg__20.hex: $(HEX)/creg__20.elf
+	avr-objcopy -O ihex $(HEX_FLASH_FLAGS) $< $@
+
+$(HEX)/creg__20.elf: $(HEX)/creg__20.o $(OBJDEPS)
+	$(CC) $(LDFLAGS) $< $(OBJDEPS) -o $@
+
+$(HEX)/creg__20.o: creg__20.s $(CDEPS)
+	$(CC) $(ASMFLAGS) -c $< -o $@
+
+
+# 60
+
+$(REP)/creg__60.txt: $(HEX)/creg__60.hex
+	$(EMU) $< > $@
+
+$(HEX)/creg__60.hex: $(HEX)/creg__60.elf
+	avr-objcopy -O ihex $(HEX_FLASH_FLAGS) $< $@
+
+$(HEX)/creg__60.elf: $(HEX)/creg__60.o $(OBJDEPS)
+	$(CC) $(LDFLAGS) $< $(OBJDEPS) -o $@
+
+$(HEX)/creg__60.o: creg__60.s $(CDEPS)
 	$(CC) $(ASMFLAGS) -c $< -o $@
 
 
