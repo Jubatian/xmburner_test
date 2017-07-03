@@ -55,9 +55,8 @@ main:
 
 	; If routine completes, then failed
 
-	ldi   r24,     0xFF
-	ldi   r25,     0xFF
-	rjmp  fail
+	call  print_fail_nodet
+	rjmp  exit
 
 
 

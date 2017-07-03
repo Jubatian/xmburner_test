@@ -101,6 +101,38 @@ print_pass:
 
 
 ;
+; Print test result: 'PASS' with early detection notification
+;
+; Inputs:
+; r25:r24: Extra info (printed as two hex values, r25:r24 order)
+; Clobbers:
+; r24, r25, X, Z
+;
+.global print_pass_early
+print_pass_early:
+
+	movw  XL,      r24
+
+	ldi   r24,     lo8(print_str_pass)
+	ldi   r25,     hi8(print_str_pass)
+	rcall print_str
+
+	ldi   r24,     lo8(print_str_early)
+	ldi   r25,     hi8(print_str_early)
+	rcall print_str
+
+	sts   0x00E2,  XH      ; Write to hexadecimal output port (emulator)
+	ldi   r24,     ':'
+	sts   0x00E0,  r24
+	sts   0x00E2,  XL
+	ldi   r24,     ')'
+	sts   0x00E0,  r24
+
+	ret
+
+
+
+;
 ; Print test result: 'FAIL'
 ;
 ; Inputs:
@@ -112,6 +144,26 @@ print_fail:
 
 	ldi   r24,     lo8(print_str_fail)
 	ldi   r25,     hi8(print_str_fail)
+	rjmp  print_str
+
+
+
+;
+; Print test result: 'FAIL (No detection)'
+;
+; Inputs:
+; Clobbers:
+; r24, r25, Z
+;
+.global print_fail_nodet
+print_fail_nodet:
+
+	ldi   r24,     lo8(print_str_fail)
+	ldi   r25,     hi8(print_str_fail)
+	rcall print_str
+
+	ldi   r24,     lo8(print_str_nodet)
+	ldi   r25,     hi8(print_str_nodet)
 	rjmp  print_str
 
 
@@ -159,6 +211,12 @@ print_str_pass:
 
 print_str_fail:
 	.byte 'F', 'A', 'I', 'L', 0
+
+print_str_nodet:
+	.byte ' ', '(', 'N', 'o', ' ', 'd', 'e', 't', 'e', 'c', 't', 'i', 'o', 'n', ')', 0
+
+print_str_early:
+	.byte ' ', '(', 'E', 'a', 'r', 'l', 'y', ':', ' ', 0
 
 ; Fix alignment for further code
 
