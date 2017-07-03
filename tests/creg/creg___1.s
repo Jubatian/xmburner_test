@@ -33,20 +33,13 @@ main:
 
 	; Output test ID
 
-	ldi   r22,     1
-	ldi   r24,     lo8(creg_id)
-	ldi   r25,     hi8(creg_id)
-	call  print_test_id
+	PRINT_TEST_ID  1
 
 	; Prepare for test
 	; Set up the execution chain value correctly
 
-	ldi   r20,     (exec_id_from      ) & 0xFF
-	ldi   r21,     (exec_id_from >>  8) & 0xFF
-	ldi   r22,     (exec_id_from >> 16) & 0xFF
-	ldi   r23,     (exec_id_from >> 24) & 0xFF
-	ldi   r24,     lo8(pm(xmb_creg))
-	ldi   r25,     hi8(pm(xmb_creg))
+	LD_QUAD_R20_23 exec_id_from
+	LD_FPTR_R24_25 xmb_creg
 
 	; Run test
 
@@ -64,8 +57,7 @@ main:
 .global xmb_fault
 xmb_fault:
 
-	ldi   r16,     0x00
-	sts   0x00F0,  r16     ; Cancel behaviour modifications
+	MOD_DIS_R16
 
 	; Failed test
 

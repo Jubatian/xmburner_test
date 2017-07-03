@@ -33,30 +33,13 @@ main:
 
 	; Output test ID
 
-	ldi   r22,     60
-	ldi   r24,     lo8(creg_id)
-	ldi   r25,     hi8(creg_id)
-	call  print_test_id
+	PRINT_TEST_ID  60
 
 	; Prepare for test
 
-	ldi   r20,     (exec_id_from      ) & 0xFF
-	ldi   r21,     (exec_id_from >>  8) & 0xFF
-	ldi   r22,     (exec_id_from >> 16) & 0xFF
-	ldi   r23,     (exec_id_from >> 24) & 0xFF
-	ldi   r24,     lo8(pm(xmb_creg_cr0))
-	ldi   r25,     hi8(pm(xmb_creg_cr0))
-
-	ldi   r16,     0x04
-	sts   0x00F1,  r16     ; Stuck bits, OR mask
-	ldi   r16,     0xFF
-	sts   0x00F1,  r16     ; Stuck bits, AND mask
-	ldi   r16,     0x00
-	sts   0x00F1,  r16     ; Stuck bits, address low (0x0000: r0)
-	ldi   r16,     0x00
-	sts   0x00F1,  r16     ; Stuck bits, address high
-	ldi   r16,     0x5A
-	sts   0x00F0,  r16     ; Enable behaviour mods on next ijmp
+	LD_FPTR_R24_25 xmb_creg_cr0
+	MOD_STUCK_R16  0x04, 0xFF, 0x0000 ; Stuck bits on r0
+	MOD_ENA_R16
 
 	; Run test
 
@@ -74,8 +57,7 @@ main:
 .global xmb_fault
 xmb_fault:
 
-	ldi   r16,     0x00
-	sts   0x00F0,  r16     ; Cancel behaviour modifications
+	MOD_DIS_R16
 
 	; Evaulate
 

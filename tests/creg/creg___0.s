@@ -33,21 +33,14 @@ main:
 
 	; Output test ID
 
-	ldi   r22,     0
-	ldi   r24,     lo8(creg_id)
-	ldi   r25,     hi8(creg_id)
-	call  print_test_id
+	PRINT_TEST_ID  0
 
 	; Prepare for test
 	; Try to call the xmb_creg routine without a suitable execution chain
 	; value
 
-	clr   r20
-	clr   r21
-	clr   r22
-	clr   r23
-	ldi   r24,     lo8(pm(xmb_creg))
-	ldi   r25,     hi8(pm(xmb_creg))
+	LD_QUAD_R20_23 0
+	LD_FPTR_R24_25 xmb_creg
 
 	; Run test
 
@@ -65,8 +58,7 @@ main:
 .global xmb_fault
 xmb_fault:
 
-	ldi   r16,     0x00
-	sts   0x00F0,  r16     ; Cancel behaviour modifications
+	MOD_DIS_R16
 
 	; Evaulate
 
