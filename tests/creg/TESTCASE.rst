@@ -92,3 +92,27 @@ values for that bit.
 
 ALU modifications: A stuck 1 bit in registers r0 - r31 (each test case tests
 one bit in one CPU register).
+
+
+
+Case 180 - 187
+------------------------------------------------------------------------------
+
+
+Tests stuck to 0 bits in the Status Register (SREG) on the status register
+block (xmb_creg_sreg).
+
+ALU modifications: Each case tests a stuck to 0 bit in SREG.
+
+
+
+Case 190 - 197
+------------------------------------------------------------------------------
+
+
+Tests stuck to 1 bits in the Status Register (SREG) on the status register
+block (xmb_creg_sreg).
+
+ALU modifications: Each case tests a stuck to 1 bit in SREG.
+
+
