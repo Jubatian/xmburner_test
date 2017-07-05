@@ -206,6 +206,22 @@ TESTRES += $(REP)/creg_194.txt
 TESTRES += $(REP)/creg_195.txt
 TESTRES += $(REP)/creg_196.txt
 TESTRES += $(REP)/creg_197.txt
+TESTRES += $(REP)/creg_200.txt
+TESTRES += $(REP)/creg_201.txt
+TESTRES += $(REP)/creg_202.txt
+TESTRES += $(REP)/creg_203.txt
+TESTRES += $(REP)/creg_204.txt
+TESTRES += $(REP)/creg_205.txt
+TESTRES += $(REP)/creg_206.txt
+TESTRES += $(REP)/creg_207.txt
+TESTRES += $(REP)/creg_210.txt
+TESTRES += $(REP)/creg_211.txt
+TESTRES += $(REP)/creg_212.txt
+TESTRES += $(REP)/creg_213.txt
+TESTRES += $(REP)/creg_214.txt
+TESTRES += $(REP)/creg_215.txt
+TESTRES += $(REP)/creg_216.txt
+TESTRES += $(REP)/creg_217.txt
 
 
 # Build tests

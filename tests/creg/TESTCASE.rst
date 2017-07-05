@@ -116,3 +116,23 @@ block (xmb_creg_sreg).
 ALU modifications: Each case tests a stuck to 1 bit in SREG.
 
 
+
+Case 200 - 207
+------------------------------------------------------------------------------
+
+
+Tests whether the BSET instruction is tested (setting individual flag bits in
+the status register) on the status register block (xmb_creg_sreg).
+
+ALU modifications: Each case tests by turning a BSET into a NOP.
+
+
+
+Case 210 - 217
+------------------------------------------------------------------------------
+
+
+Tests whether the BCLR instruction is tested (clearing individual flag bits in
+the status register) on the status register block (xmb_creg_sreg).
+
+ALU modifications: Each case tests by turning a BCLR into a NOP.

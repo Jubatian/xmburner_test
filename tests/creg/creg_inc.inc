@@ -74,3 +74,18 @@
 	ldi   r16,     hi8(\addr)
 	sts   0x00F1,  r16     ; Stuck bits, address high
 .endm
+
+
+;
+; NOP transform modification (mask, compare)
+;
+.macro MOD_NOP_R16 mask comp
+	ldi   r16,     lo8(\mask)
+	sts   0x00F6,  r16     ; NOP transform, mask low
+	ldi   r16,     hi8(\mask)
+	sts   0x00F6,  r16     ; NOP transform, mask high
+	ldi   r16,     lo8(\comp)
+	sts   0x00F6,  r16     ; NOP transform, compare low
+	ldi   r16,     hi8(\comp)
+	sts   0x00F6,  r16     ; NOP transform, compare high
+.endm
