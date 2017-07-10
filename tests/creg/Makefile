@@ -31,6 +31,10 @@
 
 include ../../Make_defines.mk
 
+# Target name (XMBurner component)
+
+TARGET = creg
+
 # XMBurner components
 
 XMB_PATH_OBJ = ../../../xmburner/_xmb_o_
@@ -47,16 +51,16 @@ HEX = ../../_hex_
 
 # Output
 
-OUT = $(REP)/creg.txt
+OUT = $(REP)/$(TARGET).txt
 
 # Usual object depencies of test cases
 
-OBJDEPS  = $(HEX)/print.o $(HEX)/runner.o $(HEX)/creg_id.o
-OBJDEPS += $(XMB_PATH_OBJ)/xmb_creg.o $(XMB_PATH_OBJ)/xmb_glob.o
+OBJDEPS  = $(HEX)/print.o $(HEX)/runner.o $(HEX)/$(TARGET)_id.o
+OBJDEPS += $(XMB_PATH_OBJ)/xmb_$(TARGET).o $(XMB_PATH_OBJ)/xmb_glob.o
 
 # Usual compile dependencies of test cases
 
-CDEPS = creg_inc.inc
+CDEPS = $(TARGET)_inc.inc
 
 # List of test results
 
@@ -234,7 +238,13 @@ TESTRES += $(REP)/creg_217.txt
 
 all: $(OUT)
 
-$(OUT): $(TESTRES)
+$(OUT): $(REP)/$(TARGET)_m.txt $(REP)/$(TARGET)_s.txt
+	cat $(REP)/$(TARGET)_m.txt $(REP)/$(TARGET)_s.txt > $@
+
+$(REP)/$(TARGET)_s.txt: $(REP)/$(TARGET)_m.txt
+	../common/summary.sh $(TARGET) $< > $@
+
+$(REP)/$(TARGET)_m.txt: $(TESTRES)
 	cat $(TESTRES) > $@
 
 
@@ -261,7 +271,7 @@ $(HEX)/print.o: ../common/print.s
 $(HEX)/runner.o: ../common/runner.s
 	$(CC) $(ASMFLAGS) -c $< -o $@
 
-$(HEX)/creg_id.o: creg_id.s
+$(HEX)/$(TARGET)_id.o: $(TARGET)_id.s
 	$(CC) $(ASMFLAGS) -c $< -o $@
 
 
