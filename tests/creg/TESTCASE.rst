@@ -39,6 +39,20 @@ No ALU modifications are present.
 
 
 
+Case 10 - 15
+------------------------------------------------------------------------------
+
+
+Tests bits stuck in the Stack Pointer using the Stack pointer test
+(xmb_creg_sp): bit 0 stuck 0/1, bit 7 stuck 0/1 and bit 11 stuck 0/1 (which is
+in SPH). They should be detected and reacted with the appropriate fault
+handler.
+
+ALU modifications: A stuck 0 or a stuck 1 bit in SPL or SPH (each test case
+tests one bit).
+
+
+
 Case 20 - 51
 ------------------------------------------------------------------------------
 

@@ -62,6 +62,12 @@ CDEPS = creg_inc.inc
 
 TESTRES  = $(REP)/creg___0.txt
 TESTRES += $(REP)/creg___1.txt
+TESTRES += $(REP)/creg__10.txt
+TESTRES += $(REP)/creg__11.txt
+TESTRES += $(REP)/creg__12.txt
+TESTRES += $(REP)/creg__13.txt
+TESTRES += $(REP)/creg__14.txt
+TESTRES += $(REP)/creg__15.txt
 TESTRES += $(REP)/creg__20.txt
 TESTRES += $(REP)/creg__21.txt
 TESTRES += $(REP)/creg__22.txt
