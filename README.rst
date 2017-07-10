@@ -55,16 +55,22 @@ Interpreting test reports
 Reports of individual tests are generated in the following format: ::
 
     Test: <component> (<test_case>)
-    Result: PASS / FAIL
+    Result: PASS / FAIL (<notes>)
 
 Where:
 
 - component: The XMBurner component being tested (identified by its filename).
 - test_case: The test case, same as the number in the file name in the tests
   folder.
+- notes: Notes for the test result (may appear for PASS too).
 
 Result most commonly will be either PASS or FAIL. It is possible that a test
 can not generate a result due to a flaw in XMBurner or due to the way the
 simulated processor anomaly interacts with the running code. This case
 "Result:" will print without a result, which should be interpreted as a
 failure.
+
+Notes identify how the test failed (such as no detection, or a latter part of
+the library catching the anomaly), but passing tests may also supply such
+information (indicating whether an earlier detector caught an anomaly than
+what the test case intended to test).
