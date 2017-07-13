@@ -54,6 +54,7 @@ REPORT = report.txt
 # List of report components
 
 COMPONENTS  = $(REP)/creg.txt
+COMPONENTS += $(REP)/cond.txt
 
 
 
@@ -96,5 +97,8 @@ $(HEX):
 
 $(REP)/creg.txt: $(DEPS) tests/creg/*
 	cd tests/creg && $(MAKE)
+
+$(REP)/cond.txt: $(DEPS) tests/cond/*
+	cd tests/cond && $(MAKE)
 
 .PHONY: all clean
