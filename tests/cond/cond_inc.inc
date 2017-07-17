@@ -62,21 +62,6 @@
 
 
 ;
-; Stuck bits modification (OR mask, AND mask, address)
-;
-.macro MOD_STUCK_R16 mor mand addr
-	ldi   r16,     \mor
-	sts   0x00F1,  r16     ; Stuck bits, OR mask
-	ldi   r16,     \mand
-	sts   0x00F1,  r16     ; Stuck bits, AND mask
-	ldi   r16,     lo8(\addr)
-	sts   0x00F1,  r16     ; Stuck bits, address low
-	ldi   r16,     hi8(\addr)
-	sts   0x00F1,  r16     ; Stuck bits, address high
-.endm
-
-
-;
 ; NOP transform modification (mask, compare)
 ;
 .macro MOD_NOP_R16 mask comp
@@ -88,4 +73,19 @@
 	sts   0x00F6,  r16     ; NOP transform, compare low
 	ldi   r16,     hi8(\comp)
 	sts   0x00F6,  r16     ; NOP transform, compare high
+.endm
+
+
+;
+; Condition disable modification (mask, compare)
+;
+.macro MOD_CDI_R16 mask comp
+	ldi   r16,     lo8(\mask)
+	sts   0x00F7,  r16     ; Condition disable transform, mask low
+	ldi   r16,     hi8(\mask)
+	sts   0x00F7,  r16     ; Condition disable transform, mask high
+	ldi   r16,     lo8(\comp)
+	sts   0x00F7,  r16     ; Condition disable transform, compare low
+	ldi   r16,     hi8(\comp)
+	sts   0x00F7,  r16     ; Condition disable transform, compare high
 .endm
