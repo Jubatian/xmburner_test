@@ -66,6 +66,38 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/jump___0.txt
 TESTRES += $(REP)/jump___1.txt
+TESTRES += $(REP)/jump__10.txt
+TESTRES += $(REP)/jump__11.txt
+TESTRES += $(REP)/jump__12.txt
+TESTRES += $(REP)/jump__13.txt
+TESTRES += $(REP)/jump__14.txt
+TESTRES += $(REP)/jump__15.txt
+TESTRES += $(REP)/jump__16.txt
+TESTRES += $(REP)/jump__17.txt
+TESTRES += $(REP)/jump__20.txt
+TESTRES += $(REP)/jump__21.txt
+TESTRES += $(REP)/jump__22.txt
+TESTRES += $(REP)/jump__23.txt
+TESTRES += $(REP)/jump__24.txt
+TESTRES += $(REP)/jump__25.txt
+TESTRES += $(REP)/jump__26.txt
+TESTRES += $(REP)/jump__27.txt
+TESTRES += $(REP)/jump__30.txt
+TESTRES += $(REP)/jump__31.txt
+TESTRES += $(REP)/jump__32.txt
+TESTRES += $(REP)/jump__33.txt
+TESTRES += $(REP)/jump__34.txt
+TESTRES += $(REP)/jump__35.txt
+TESTRES += $(REP)/jump__36.txt
+TESTRES += $(REP)/jump__37.txt
+TESTRES += $(REP)/jump__40.txt
+TESTRES += $(REP)/jump__41.txt
+TESTRES += $(REP)/jump__42.txt
+TESTRES += $(REP)/jump__43.txt
+TESTRES += $(REP)/jump__44.txt
+TESTRES += $(REP)/jump__45.txt
+TESTRES += $(REP)/jump__46.txt
+TESTRES += $(REP)/jump__47.txt
 
 
 # Build tests
