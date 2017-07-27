@@ -56,6 +56,7 @@ REPORT = report.txt
 COMPONENTS  = $(REP)/creg.txt
 COMPONENTS += $(REP)/cond.txt
 COMPONENTS += $(REP)/jump.txt
+COMPONENTS += $(REP)/crc.txt
 
 
 
@@ -104,5 +105,8 @@ $(REP)/cond.txt: $(DEPS) tests/cond/*
 
 $(REP)/jump.txt: $(DEPS) tests/jump/*
 	cd tests/jump && $(MAKE)
+
+$(REP)/crc.txt: $(DEPS) tests/crc/*
+	cd tests/crc && $(MAKE)
 
 .PHONY: all clean
