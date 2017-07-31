@@ -36,3 +36,15 @@ Tests whether the module can run properly when there are no anomalies in the
 ALU. This means that the module returns without calling the fault handler.
 
 No ALU modifications are present.
+
+
+
+Case 2
+------------------------------------------------------------------------------
+
+
+Tests whether the module can perform a full cycle without faults when there
+are no anomalies.
+
+No ALU modifications are present.
+

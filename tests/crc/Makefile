@@ -38,6 +38,7 @@ TARGET = crc
 # Binary size for adding CRC
 
 BINSIZE = 4096
+ASMFLAGS += -DBINSIZE=$(BINSIZE)
 
 # XMBurner components
 
@@ -72,6 +73,8 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/crc___0.txt
 TESTRES += $(REP)/crc___1.txt
+TESTRES += $(REP)/crc___2.txt
+TESTRES += $(REP)/crc___3.txt
 
 
 # Build tests
@@ -100,7 +103,7 @@ $(HEX)/%.hexraw: $(HEX)/%.elf
 	avr-objcopy -O ihex $(HEX_FLASH_FLAGS) $< $@
 
 $(HEX)/%.elf: $(HEX)/%.o $(OBJDEPS)
-	$(CC) $(LDFLAGS) $< $(OBJDEPS) -o $@
+	$(CC) $(LDFLAGS) $(OBJDEPS) $< -o $@
 
 $(HEX)/%.o: %.s $(CDEPS)
 	$(CC) $(ASMFLAGS) -c $< -o $@
