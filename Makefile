@@ -45,7 +45,6 @@ XMB = $(XMBPATH)/_xmb_o_/dummy
 
 REP = _rep_
 HEX = _hex_
-DEPS = $(REP) $(HEX) $(EMU) $(XMB)
 
 # The output report
 
@@ -97,16 +96,16 @@ $(HEX):
 
 # Report parts
 
-$(REP)/creg.txt: $(DEPS) tests/creg/*
+$(REP)/creg.txt: tests/creg/* $(EMU) $(XMB) | $(REP) $(HEX)
 	cd tests/creg && $(MAKE)
 
-$(REP)/cond.txt: $(DEPS) tests/cond/*
+$(REP)/cond.txt: tests/cond/* $(EMU) $(XMB) | $(REP) $(HEX)
 	cd tests/cond && $(MAKE)
 
-$(REP)/jump.txt: $(DEPS) tests/jump/*
+$(REP)/jump.txt: tests/jump/* $(EMU) $(XMB) | $(REP) $(HEX)
 	cd tests/jump && $(MAKE)
 
-$(REP)/crc.txt: $(DEPS) tests/crc/*
+$(REP)/crc.txt: tests/crc/* $(EMU) $(XMB) | $(REP) $(HEX)
 	cd tests/crc && $(MAKE)
 
 .PHONY: all clean

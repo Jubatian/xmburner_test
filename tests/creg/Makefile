@@ -257,7 +257,7 @@ $(HEX)/%.hex: $(HEX)/%.elf
 	avr-objcopy -O ihex $(HEX_FLASH_FLAGS) $< $@
 
 $(HEX)/%.elf: $(HEX)/%.o $(OBJDEPS)
-	$(CC) $(LDFLAGS) $< $(OBJDEPS) -o $@
+	$(CC) $(LDFLAGS) $(OBJDEPS) $< -o $@
 
 $(HEX)/%.o: %.s $(CDEPS)
 	$(CC) $(ASMFLAGS) -c $< -o $@
