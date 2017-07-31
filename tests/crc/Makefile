@@ -75,6 +75,11 @@ TESTRES  = $(REP)/crc___0.txt
 TESTRES += $(REP)/crc___1.txt
 TESTRES += $(REP)/crc___2.txt
 TESTRES += $(REP)/crc___3.txt
+TESTRES += $(REP)/crc___4.txt
+TESTRES += $(REP)/crc__20.txt
+TESTRES += $(REP)/crc__21.txt
+TESTRES += $(REP)/crc__30.txt
+TESTRES += $(REP)/crc__31.txt
 
 
 # Build tests

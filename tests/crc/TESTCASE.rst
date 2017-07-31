@@ -48,3 +48,66 @@ are no anomalies.
 
 No ALU modifications are present.
 
+
+
+Case 3
+------------------------------------------------------------------------------
+
+
+Tests whether the module can detect ROM anomalies by producing bad CRC.
+
+ALU modifications: ROM bits on the CRC masked out.
+
+
+
+Case 4
+------------------------------------------------------------------------------
+
+
+Tests whether the module can compare the two CRC algorithms it uses by
+modifying an instruction used in only one of these algorithms.
+
+ALU modifications: MUL instruction turned to NOP (used for table CRC).
+
+
+
+Case 20
+------------------------------------------------------------------------------
+
+
+Tests the xmb_crc_isromok() function whether it can complete passing when
+there are no anomalies present.
+
+No ALU modifications are present.
+
+
+
+Case 21
+------------------------------------------------------------------------------
+
+
+Tests the xmb_crc_isromok() function whether it fails if the CRC is bad.
+
+ALU modifications: ROM bits on the CRC masked out.
+
+
+
+Case 30
+------------------------------------------------------------------------------
+
+
+Generates CRC on a RAM buffer and checks it. Checks whether these routines can
+pass proper when they are used normally.
+
+No ALU modifications are present.
+
+
+
+Case 31
+------------------------------------------------------------------------------
+
+
+Performs CRC check on a RAM buffer with bad CRC. Checks whether the RAM CRC
+check can detect and report failure.
+
+No ALU modifications are present.
