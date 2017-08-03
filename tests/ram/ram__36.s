@@ -69,7 +69,7 @@ xmb_fault:
 
 	MOD_DIS_R16
 
-	; Evaulate
+	; Evaluate
 
 	cpi   r24,     0x01
 	brne  fail             ; Must be 0x01
