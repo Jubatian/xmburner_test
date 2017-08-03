@@ -66,6 +66,22 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/ram___0.txt
 TESTRES += $(REP)/ram___1.txt
+TESTRES += $(REP)/ram__20.txt
+TESTRES += $(REP)/ram__21.txt
+TESTRES += $(REP)/ram__22.txt
+TESTRES += $(REP)/ram__23.txt
+TESTRES += $(REP)/ram__24.txt
+TESTRES += $(REP)/ram__25.txt
+TESTRES += $(REP)/ram__26.txt
+TESTRES += $(REP)/ram__27.txt
+TESTRES += $(REP)/ram__30.txt
+TESTRES += $(REP)/ram__31.txt
+TESTRES += $(REP)/ram__32.txt
+TESTRES += $(REP)/ram__33.txt
+TESTRES += $(REP)/ram__34.txt
+TESTRES += $(REP)/ram__35.txt
+TESTRES += $(REP)/ram__36.txt
+TESTRES += $(REP)/ram__37.txt
 
 
 # Build tests

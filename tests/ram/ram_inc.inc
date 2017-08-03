@@ -65,3 +65,18 @@
 	ldi   r16,     0x00
 	sts   0x00F0,  r16
 .endm
+
+
+;
+; Stuck bits modification (OR mask, AND mask, address)
+;
+.macro MOD_STUCK_R16 mor mand addr
+	ldi   r16,     \mor
+	sts   0x00F1,  r16     ; Stuck bits, OR mask
+	ldi   r16,     \mand
+	sts   0x00F1,  r16     ; Stuck bits, AND mask
+	ldi   r16,     lo8(\addr)
+	sts   0x00F1,  r16     ; Stuck bits, address low
+	ldi   r16,     hi8(\addr)
+	sts   0x00F1,  r16     ; Stuck bits, address high
+.endm
