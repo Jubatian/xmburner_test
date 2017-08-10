@@ -39,6 +39,26 @@ No ALU modifications are present.
 
 
 
+Case 10
+------------------------------------------------------------------------------
+
+
+Tests whether a pointer increment fault can be detected.
+
+ALU modifications: An increment flaw on an LD instruction.
+
+
+
+Case 11
+------------------------------------------------------------------------------
+
+
+Tests whether a pointer decrement fault can be detected.
+
+ALU modifications: A decrement flaw on an LD instruction.
+
+
+
 Case 20 - 27
 ------------------------------------------------------------------------------
 

@@ -66,6 +66,8 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/ram___0.txt
 TESTRES += $(REP)/ram___1.txt
+TESTRES += $(REP)/ram__10.txt
+TESTRES += $(REP)/ram__11.txt
 TESTRES += $(REP)/ram__20.txt
 TESTRES += $(REP)/ram__21.txt
 TESTRES += $(REP)/ram__22.txt
