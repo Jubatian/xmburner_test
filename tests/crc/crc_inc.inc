@@ -97,3 +97,16 @@
 	ldi   r16,     hi8(\comp)
 	sts   0x00F6,  r16     ; NOP transform, compare high
 .endm
+
+
+;
+; Inc / Dec anomaly modification (value, transformed opcode)
+;
+.macro MOD_INCDEC_R16 val opc
+	ldi   r16,     lo8(\val)
+	sts   0x00F5,  r16     ; Inc / Dec anomaly, value low
+	ldi   r16,     hi8(\val)
+	sts   0x00F5,  r16     ; Inc / Dec anomaly, value high
+	ldi   r16,     \opc
+	sts   0x00F5,  r16     ; Inc / Dec anomaly, opcode
+.endm

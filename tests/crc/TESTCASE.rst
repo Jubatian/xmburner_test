@@ -71,6 +71,17 @@ ALU modifications: MUL instruction turned to NOP (used for table CRC).
 
 
 
+Case 5
+------------------------------------------------------------------------------
+
+
+Tests whether the module can detect a flaw in the increments of the ROM
+pointer.
+
+ALU modifications: LPM(Z+) instruction's increment is turned off for a value.
+
+
+
 Case 20
 ------------------------------------------------------------------------------
 
