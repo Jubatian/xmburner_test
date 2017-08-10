@@ -40,8 +40,6 @@ main:
 
 	call  xmb_crc_init
 	LD_FPTR_R24_25 xmb_crc_ccalc
-	ldi   XL,      lo8(BINSIZE / 64)
-	ldi   XH,      hi8(BINSIZE / 64)
 	MOD_NOP_R16    0xFC00, 0x9C00 ; MUL turned into NOP
 	MOD_ENA_R16
 
