@@ -39,6 +39,28 @@ No ALU modifications are present.
 
 
 
+Case 2
+------------------------------------------------------------------------------
+
+
+Tests whether the module can perform a full cycle without faults when there
+are no anomalies.
+
+No ALU modifications are present.
+
+
+
+Case 3
+------------------------------------------------------------------------------
+
+
+Tests the xmb_ram_isramok() function whether it can complete passing when
+there are no anomalies present.
+
+No ALU modifications are present.
+
+
+
 Case 10
 ------------------------------------------------------------------------------
 
