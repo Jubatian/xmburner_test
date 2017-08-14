@@ -61,6 +61,16 @@ No ALU modifications are present.
 
 
 
+Case 4 - 5
+------------------------------------------------------------------------------
+
+
+Tests the xmb_ram_isramok() function whether it can detect RAM anomalies.
+
+ALU modifications: A stuck 0 and a stuck 1 bit at different RAM cells.
+
+
+
 Case 10
 ------------------------------------------------------------------------------
 
