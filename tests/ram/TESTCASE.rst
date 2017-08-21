@@ -91,6 +91,26 @@ ALU modifications: A decrement flaw on an LD instruction.
 
 
 
+Case 12
+------------------------------------------------------------------------------
+
+
+Tests whether a decrement fault in PUSH can be detected.
+
+ALU modifications: A decrement flaw on the PUSH instruction.
+
+
+
+Case 13
+------------------------------------------------------------------------------
+
+
+Tests whether an increment fault in POP can be detected.
+
+ALU modifications: An increment flaw on the POP instruction.
+
+
+
 Case 20 - 27
 ------------------------------------------------------------------------------
 
@@ -99,6 +119,7 @@ Tests stuck to 0 bits in RAM on the RAM check (xmb_ram_check). It must detect
 any stuck 0 bit.
 
 ALU modifications: Each case tests a different stuck to 0 bit on a RAM cell.
+
 
 
 Case 30 - 37
