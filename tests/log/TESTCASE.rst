@@ -36,3 +36,15 @@ Tests whether the module can run properly when there are no anomalies in the
 ALU. This means that the module returns without calling the fault handler.
 
 No ALU modifications are present.
+
+
+
+Case 10 - 15
+------------------------------------------------------------------------------
+
+
+Tests whether each of the 6 logic instructions (AND, ANDI, OR, ORI, EOR, COM)
+is executed and compared. This is done by transforming each to a NOP,
+excepting an according response.
+
+ALU modification: Turns one of the logic instructions into NOP for each test.

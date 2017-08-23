@@ -66,6 +66,12 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/log___0.txt
 TESTRES += $(REP)/log___1.txt
+TESTRES += $(REP)/log__10.txt
+TESTRES += $(REP)/log__11.txt
+TESTRES += $(REP)/log__12.txt
+TESTRES += $(REP)/log__13.txt
+TESTRES += $(REP)/log__14.txt
+TESTRES += $(REP)/log__15.txt
 
 
 # Build tests
