@@ -17,7 +17,7 @@
 ;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;
 ;
-; Tests whether the ANDI instruction is executed and compared.
+; Tests whether the ORI instruction is executed and compared.
 ;
 
 
@@ -38,7 +38,7 @@ main:
 	; Prepare for test
 
 	LD_FPTR_R24_25 xmb_log_test
-	MOD_NOP_R16    0xF000, 0x7000 ; ANDI turned into NOP
+	MOD_NOP_R16    0xF000, 0x6000 ; ORI turned into NOP
 	MOD_ENA_R16
 
 	; Run test

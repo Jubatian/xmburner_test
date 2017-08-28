@@ -61,8 +61,8 @@ xmb_fault:
 
 	; Evaluate
 
-	cpi   r24,     0x02
-	brne  fail             ; Must be 0x02
+	cpi   r24,     0x04
+	brne  fail             ; Must be 0x04
 	cpi   r25,     0x05
 	brne  fail
 

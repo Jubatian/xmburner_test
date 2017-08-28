@@ -17,7 +17,7 @@
 ;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;
 ;
-; Tests whether the AND instruction is executed and compared.
+; Tests whether the OR instruction is executed and compared.
 ;
 
 
@@ -38,7 +38,7 @@ main:
 	; Prepare for test
 
 	LD_FPTR_R24_25 xmb_log_test
-	MOD_NOP_R16    0xFC00, 0x2000 ; AND turned into NOP
+	MOD_NOP_R16    0xFC00, 0x2800 ; OR turned into NOP
 	MOD_ENA_R16
 
 	; Run test
@@ -61,8 +61,8 @@ xmb_fault:
 
 	; Evaluate
 
-	cpi   r24,     0x01
-	brne  fail             ; Must be 0x01
+	cpi   r24,     0x00
+	brne  fail             ; Must be 0x00
 	cpi   r25,     0x05
 	brne  fail
 
