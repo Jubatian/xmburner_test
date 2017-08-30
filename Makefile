@@ -58,6 +58,7 @@ COMPONENTS += $(REP)/jump.txt
 COMPONENTS += $(REP)/crc.txt
 COMPONENTS += $(REP)/ram.txt
 COMPONENTS += $(REP)/log.txt
+COMPONENTS += $(REP)/sub.txt
 
 
 
@@ -115,5 +116,8 @@ $(REP)/ram.txt: tests/ram/* $(EMU) $(XMB) | $(REP) $(HEX)
 
 $(REP)/log.txt: tests/log/* $(EMU) $(XMB) | $(REP) $(HEX)
 	cd tests/log && $(MAKE)
+
+$(REP)/sub.txt: tests/sub/* $(EMU) $(XMB) | $(REP) $(HEX)
+	cd tests/sub && $(MAKE)
 
 .PHONY: all clean
