@@ -59,3 +59,18 @@
 	ldi   r16,     0x00
 	sts   0x00F0,  r16
 .endm
+
+
+;
+; NOP transform modification (mask, compare)
+;
+.macro MOD_NOP_R16 mask comp
+	ldi   r16,     lo8(\mask)
+	sts   0x00F6,  r16     ; NOP transform, mask low
+	ldi   r16,     hi8(\mask)
+	sts   0x00F6,  r16     ; NOP transform, mask high
+	ldi   r16,     lo8(\comp)
+	sts   0x00F6,  r16     ; NOP transform, compare low
+	ldi   r16,     hi8(\comp)
+	sts   0x00F6,  r16     ; NOP transform, compare high
+.endm

@@ -66,6 +66,13 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/sub___0.txt
 TESTRES += $(REP)/sub___1.txt
+TESTRES += $(REP)/sub__10.txt
+TESTRES += $(REP)/sub__11.txt
+TESTRES += $(REP)/sub__12.txt
+TESTRES += $(REP)/sub__13.txt
+TESTRES += $(REP)/sub__14.txt
+TESTRES += $(REP)/sub__15.txt
+TESTRES += $(REP)/sub__16.txt
 
 
 # Build tests

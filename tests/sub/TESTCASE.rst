@@ -36,3 +36,15 @@ Tests whether the module can run properly when there are no anomalies in the
 ALU. This means that the module returns without calling the fault handler.
 
 No ALU modifications are present.
+
+
+
+Case 10 - 16
+------------------------------------------------------------------------------
+
+
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+CPC, SBCI) is executed and compared. This is done by transforming each to a
+NOP, expecting an according response.
+
+ALU modification: Turns one of the sub instructions into NOP for each test.
