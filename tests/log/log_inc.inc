@@ -77,7 +77,7 @@
 
 
 ;
-; Flag behavior anomaly modification (mask, compare)
+; Flag behavior anomaly modification (mask, compare, flag OR, flag AND)
 ;
 .macro MOD_FLAG_R16 mask comp fmor fmand
 	ldi   r16,     lo8(\mask)

@@ -74,3 +74,22 @@
 	ldi   r16,     hi8(\comp)
 	sts   0x00F6,  r16     ; NOP transform, compare high
 .endm
+
+
+;
+; Flag behavior anomaly modification (mask, compare, flag OR, flag AND)
+;
+.macro MOD_FLAG_R16 mask comp fmor fmand
+	ldi   r16,     lo8(\mask)
+	sts   0x00F3,  r16     ; Flag behavior, mask low
+	ldi   r16,     hi8(\mask)
+	sts   0x00F3,  r16     ; Flag behavior, mask high
+	ldi   r16,     lo8(\comp)
+	sts   0x00F3,  r16     ; Flag behavior, compare low
+	ldi   r16,     hi8(\comp)
+	sts   0x00F3,  r16     ; Flag behavior, compare high
+	ldi   r16,     (\fmor)
+	sts   0x00F3,  r16     ; Flag behavior, Flag or mask
+	ldi   r16,     (\fmand)
+	sts   0x00F3,  r16     ; Flag behavior, Flag and mask
+.endm
