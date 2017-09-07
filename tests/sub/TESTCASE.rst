@@ -55,7 +55,7 @@ Case 20 - 26
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the C (carry) flag is compared. This is done by
 masking the C to zero for each instruction (making each behaving like they
 would clear it).
@@ -68,7 +68,7 @@ Case 30 - 36
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the Z (zero) flag is compared. This is done by
 masking the Z to zero for each instruction (making each behaving like they
 would clear it).
@@ -81,7 +81,7 @@ Case 40 - 46
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the N (negative) flag is compared. This is done by
 masking the N to zero for each instruction (making each behaving like they
 would clear it).
@@ -94,7 +94,7 @@ Case 50 - 56
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the V (overflow) flag is compared. This is done by
 masking the V to zero for each instruction (making each behaving like they
 would clear it).
@@ -107,7 +107,7 @@ Case 60 - 66
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the S (sign) flag is compared. This is done by
 masking the S to zero for each instruction (making each behaving like they
 would clear it).
@@ -120,7 +120,7 @@ Case 70 - 76
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the H (half carry) flag is compared. This is done
 by masking the H to zero for each instruction (making each behaving like they
 would clear it).
@@ -133,7 +133,7 @@ Case 120 - 126
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the C (carry) flag is compared. This is done by
 masking the C to one for each instruction (making each behaving like they
 would set it).
@@ -146,7 +146,7 @@ Case 130 - 136
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the Z (zero) flag is compared. This is done by
 masking the Z to one for each instruction (making each behaving like they
 would set it).
@@ -159,7 +159,7 @@ Case 140 - 146
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the N (negative) flag is compared. This is done by
 masking the N to one for each instruction (making each behaving like they
 would set it).
@@ -172,7 +172,7 @@ Case 150 - 156
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the V (overflow) flag is compared. This is done by
 masking the V to one for each instruction (making each behaving like they
 would set it).
@@ -185,7 +185,7 @@ Case 160 - 166
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the S (sign) flag is compared. This is done by
 masking the S to one for each instruction (making each behaving like they
 would set it).
@@ -198,7 +198,7 @@ Case 170 - 176
 ------------------------------------------------------------------------------
 
 
-Tests whether each of the 6 sub type instructions (SUB, CP, SUBI, CPI, SBC,
+Tests whether each of the 7 sub type instructions (SUB, CP, SUBI, CPI, SBC,
 CPC, SBCI) is executed and the H (half carry) flag is compared. This is done
 by masking the H to one for each instruction (making each behaving like they
 would set it).
