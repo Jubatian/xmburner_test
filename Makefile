@@ -76,10 +76,18 @@ clean:
 	rm    -f $(HEX)/*.elf
 	rm -d -f $(HEX)
 
+
 # The full report
 
-$(REPORT): $(COMPONENTS)
+$(REPORT): $(REP)/r_comps.txt $(REP)/summary.txt
+	cat $(REP)/r_comps.txt $(REP)/summary.txt > $@
+
+$(REP)/summary.txt: $(REP)/r_comps.txt
+	tests/common/summary.sh "of all tests" $< > $@
+
+$(REP)/r_comps.txt: $(COMPONENTS)
 	cat $(COMPONENTS) > $@
+
 
 # Emulator
 
