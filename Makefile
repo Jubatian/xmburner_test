@@ -61,6 +61,7 @@ COMPONENTS += $(REP)/log.txt
 COMPONENTS += $(REP)/sub.txt
 COMPONENTS += $(REP)/add.txt
 COMPONENTS += $(REP)/alex.txt
+COMPONENTS += $(REP)/wops.txt
 
 
 
@@ -135,5 +136,8 @@ $(REP)/add.txt: tests/add/* $(EMU) $(XMB) | $(REP) $(HEX)
 
 $(REP)/alex.txt: tests/alex/* $(EMU) $(XMB) | $(REP) $(HEX)
 	cd tests/alex && $(MAKE)
+
+$(REP)/wops.txt: tests/wops/* $(EMU) $(XMB) | $(REP) $(HEX)
+	cd tests/wops && $(MAKE)
 
 .PHONY: all clean
