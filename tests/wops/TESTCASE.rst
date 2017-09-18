@@ -168,3 +168,14 @@ the S (sign) flag is compared. This is done by masking the S to one for each
 instruction (making each behaving like they would set it).
 
 ALU modification: The S flag set for one of the instructions in each test.
+
+
+
+Case 200
+------------------------------------------------------------------------------
+
+
+Tests whether the MOVW instruction is executed and compared. This is done by
+transforming it to a NOP, expecting an according response.
+
+ALU modification: Turns MOVW into NOP.

@@ -66,6 +66,29 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/wops___0.txt
 TESTRES += $(REP)/wops___1.txt
+TESTRES += $(REP)/wops__10.txt
+TESTRES += $(REP)/wops__11.txt
+TESTRES += $(REP)/wops__20.txt
+TESTRES += $(REP)/wops__21.txt
+TESTRES += $(REP)/wops__30.txt
+TESTRES += $(REP)/wops__31.txt
+TESTRES += $(REP)/wops__40.txt
+TESTRES += $(REP)/wops__41.txt
+TESTRES += $(REP)/wops__50.txt
+TESTRES += $(REP)/wops__51.txt
+TESTRES += $(REP)/wops__60.txt
+TESTRES += $(REP)/wops__61.txt
+TESTRES += $(REP)/wops_120.txt
+TESTRES += $(REP)/wops_121.txt
+TESTRES += $(REP)/wops_130.txt
+TESTRES += $(REP)/wops_131.txt
+TESTRES += $(REP)/wops_140.txt
+TESTRES += $(REP)/wops_141.txt
+TESTRES += $(REP)/wops_150.txt
+TESTRES += $(REP)/wops_151.txt
+TESTRES += $(REP)/wops_160.txt
+TESTRES += $(REP)/wops_161.txt
+TESTRES += $(REP)/wops_200.txt
 
 
 # Build tests
