@@ -66,6 +66,38 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/bit___0.txt
 TESTRES += $(REP)/bit___1.txt
+TESTRES += $(REP)/bit__20.txt
+TESTRES += $(REP)/bit__21.txt
+TESTRES += $(REP)/bit__22.txt
+TESTRES += $(REP)/bit__23.txt
+TESTRES += $(REP)/bit__24.txt
+TESTRES += $(REP)/bit__25.txt
+TESTRES += $(REP)/bit__26.txt
+TESTRES += $(REP)/bit__27.txt
+TESTRES += $(REP)/bit__30.txt
+TESTRES += $(REP)/bit__31.txt
+TESTRES += $(REP)/bit__32.txt
+TESTRES += $(REP)/bit__33.txt
+TESTRES += $(REP)/bit__34.txt
+TESTRES += $(REP)/bit__35.txt
+TESTRES += $(REP)/bit__36.txt
+TESTRES += $(REP)/bit__37.txt
+TESTRES += $(REP)/bit__40.txt
+TESTRES += $(REP)/bit__41.txt
+TESTRES += $(REP)/bit__42.txt
+TESTRES += $(REP)/bit__43.txt
+TESTRES += $(REP)/bit__44.txt
+TESTRES += $(REP)/bit__45.txt
+TESTRES += $(REP)/bit__46.txt
+TESTRES += $(REP)/bit__47.txt
+TESTRES += $(REP)/bit__50.txt
+TESTRES += $(REP)/bit__51.txt
+TESTRES += $(REP)/bit__52.txt
+TESTRES += $(REP)/bit__53.txt
+TESTRES += $(REP)/bit__54.txt
+TESTRES += $(REP)/bit__55.txt
+TESTRES += $(REP)/bit__56.txt
+TESTRES += $(REP)/bit__57.txt
 
 
 # Build tests
