@@ -2,7 +2,7 @@
 # Makefile #
 ############
 #
-#  Copyright (C) 2017
+#  Copyright (C) 2018
 #    Sandor Zsuga (Jubatian)
 #
 #  This program is free software: you can redistribute it and/or modify
@@ -63,6 +63,7 @@ COMPONENTS += $(REP)/add.txt
 COMPONENTS += $(REP)/alex.txt
 COMPONENTS += $(REP)/wops.txt
 COMPONENTS += $(REP)/bit.txt
+COMPONENTS += $(REP)/mul.txt
 
 
 
@@ -143,5 +144,8 @@ $(REP)/wops.txt: tests/wops/* $(EMU) $(XMB) | $(REP) $(HEX)
 
 $(REP)/bit.txt: tests/bit/* $(EMU) $(XMB) | $(REP) $(HEX)
 	cd tests/bit && $(MAKE)
+
+$(REP)/mul.txt: tests/mul/* $(EMU) $(XMB) | $(REP) $(HEX)
+	cd tests/mul && $(MAKE)
 
 .PHONY: all clean
