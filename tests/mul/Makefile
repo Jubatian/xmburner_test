@@ -66,6 +66,37 @@ CDEPS = $(TARGET)_inc.inc
 
 TESTRES  = $(REP)/mul___0.txt
 TESTRES += $(REP)/mul___1.txt
+TESTRES += $(REP)/mul___2.txt
+TESTRES += $(REP)/mul__10.txt
+TESTRES += $(REP)/mul__11.txt
+TESTRES += $(REP)/mul__12.txt
+TESTRES += $(REP)/mul__13.txt
+TESTRES += $(REP)/mul__14.txt
+TESTRES += $(REP)/mul__15.txt
+TESTRES += $(REP)/mul__20.txt
+TESTRES += $(REP)/mul__21.txt
+TESTRES += $(REP)/mul__22.txt
+TESTRES += $(REP)/mul__23.txt
+TESTRES += $(REP)/mul__24.txt
+TESTRES += $(REP)/mul__25.txt
+TESTRES += $(REP)/mul__30.txt
+TESTRES += $(REP)/mul__31.txt
+TESTRES += $(REP)/mul__32.txt
+TESTRES += $(REP)/mul__33.txt
+TESTRES += $(REP)/mul__34.txt
+TESTRES += $(REP)/mul__35.txt
+TESTRES += $(REP)/mul_120.txt
+TESTRES += $(REP)/mul_121.txt
+TESTRES += $(REP)/mul_122.txt
+TESTRES += $(REP)/mul_123.txt
+TESTRES += $(REP)/mul_124.txt
+TESTRES += $(REP)/mul_125.txt
+TESTRES += $(REP)/mul_130.txt
+TESTRES += $(REP)/mul_131.txt
+TESTRES += $(REP)/mul_132.txt
+TESTRES += $(REP)/mul_133.txt
+TESTRES += $(REP)/mul_134.txt
+TESTRES += $(REP)/mul_135.txt
 
 
 # Build tests
