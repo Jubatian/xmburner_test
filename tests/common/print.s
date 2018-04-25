@@ -94,6 +94,9 @@ print_test_id:
 .global print_pass
 print_pass:
 
+	ldi   ZL,      0x00
+	sts   0x00F0,  ZL      ; Disable behavior mods (if still enabled)
+
 	ldi   r24,     lo8(print_str_pass)
 	ldi   r25,     hi8(print_str_pass)
 	rcall print_str
@@ -112,6 +115,9 @@ print_pass:
 ;
 .global print_pass_early
 print_pass_early:
+
+	ldi   ZL,      0x00
+	sts   0x00F0,  ZL      ; Disable behavior mods (if still enabled)
 
 	movw  XL,      r24
 
@@ -144,6 +150,9 @@ print_pass_early:
 .global print_fail
 print_fail:
 
+	ldi   ZL,      0x00
+	sts   0x00F0,  ZL      ; Disable behavior mods (if still enabled)
+
 	ldi   r24,     lo8(print_str_fail)
 	ldi   r25,     hi8(print_str_fail)
 	rcall print_str
@@ -161,6 +170,9 @@ print_fail:
 ;
 .global print_fail_nodet
 print_fail_nodet:
+
+	ldi   ZL,      0x00
+	sts   0x00F0,  ZL      ; Disable behavior mods (if still enabled)
 
 	ldi   r24,     lo8(print_str_fail)
 	ldi   r25,     hi8(print_str_fail)
@@ -184,6 +196,9 @@ print_fail_nodet:
 ;
 .global print_fail_val
 print_fail_val:
+
+	ldi   ZL,      0x00
+	sts   0x00F0,  ZL      ; Disable behavior mods (if still enabled)
 
 	movw  XL,      r24
 
