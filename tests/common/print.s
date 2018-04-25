@@ -65,7 +65,7 @@ print_test_id:
 	ldi   r25,     hi8(print_str_test)
 	rcall print_str
 
-	mov   r24,     XL
+	movw  r24,     XL
 	rcall print_str
 
 	ldi   XL,      ' '
