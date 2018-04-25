@@ -98,6 +98,7 @@ TESTRES += $(REP)/jump__44.txt
 TESTRES += $(REP)/jump__45.txt
 TESTRES += $(REP)/jump__46.txt
 TESTRES += $(REP)/jump__47.txt
+TESTRES += $(REP)/jump__50.txt
 
 
 # Build tests

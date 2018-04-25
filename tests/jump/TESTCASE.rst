@@ -92,3 +92,15 @@ instructions on xmb_jump_rjump. The reaction to each should be a properly
 detected failure.
 
 ALU modifications: Turns various RJMP / RCALL instructions into NOPs.
+
+
+
+Case 50
+------------------------------------------------------------------------------
+
+
+Tests whether the icall instruction is executed in the designated test by
+turning it into a NOP. The reaction to each should be a properly detected
+failure.
+
+ALU modifications: Turns ICALL into a NOP.
